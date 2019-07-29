@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 
 $('.quadrato').click(function (){
-
+ var questo_quadrato = this;
     $.ajax(
       {
         url : apinum,
@@ -24,20 +24,20 @@ $('.quadrato').click(function (){
         success: function (data){
           var numrandom = data.response;
           console.log(numrandom);
-          $('.quadrato').click(function (){
+
             if(numrandom <= 5){
-              $(this).addClass('yellow');
-              $(this).removeClass('green');
-              $(this).text(numrandom);
+              $(questo_quadrato).addClass('yellow');
+
+              $(questo_quadrato).text(numrandom);
               console.log(this);
             }else{
-              $(this).addClass('green');
-              $(this).removeClass('yellow');
+              $(questo_quadrato).addClass('green');
+          
 
-              $(this).text(numrandom);
+              $(questo_quadrato).text(numrandom);
             }
 
-          });
+
         },
 
         error: function (){
